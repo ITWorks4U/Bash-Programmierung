@@ -1,0 +1,68 @@
+#	----------------------------
+#	HELPING DOCUMENT FOR YAHTZEE
+#	----------------------------
+
+Yahtzee is a game with six dices. Every dice has a range from 1 to 6. A full game comes with 13 rounds.
+For each round select one of 13 possible sub wins:
+
+#	-----------
+#	SINGLE EYES
+#	-----------
+
+-	Aces:	count all 1
+-	Twos:	count all 2
+-	Threes	count all 3
+-	Fours:	count all 4
+-	Fives:	count all 5
+-	Sixes:	count all 6
+
+These six sub wins above counts all numbers only, depending on the given number. Let us have these dices: {1 5 5 3 2 4}.
+If we want to count all fives, where the five does exist two times, then 10 will return (0 + 5 + 5 + 0 + 0 + 0 = 10).
+
+#	------------
+#	COMBINATIONS
+#	------------
+
+If any of the given combination below fails, except "Chance", then zero points will return, otherwise the defined
+number of points will return:
+
+-	Three Of a Kind:	Find any number three times; if we have a set of two different tuples, like: {{333}, {555}},
+						then the highest sub tuple is in use. On success, it returns the sum of the triple-tuple.
+
+-	Four Of a Kind:		Find any number four times. On success, it returns the sum of the quad-tuple,
+						e. g. {2 6 1 2 2 2} returns 8.
+						
+-	Full House:			Any combination of two tuples, where the first tuple comes with 2 identical numbers and the
+						second tuple comes with 3 other identical numbers; e. g. {4 1 1 2 2 2} is a Full House.
+						The last single number doesn't matter since it's not a part of the two tuples.
+						If we have a combination like: {1 1 1 2 2 2}, then it's NOT a Full House.
+						On success it returns 25 points.
+						
+-	Small Straight:		A linear ascending sequence of four numbers is called "Small Straight", where the linear
+						sequence is not still required. Let us have these dices: {4 6 1 4 3 2}. It's a small straight.
+						These three	combinations for a "Small Straight" are valid only: 
+						{{1, 2, 3, 4}, {2, 3, 4, 5}, {3, 4, 5, 6}}; as you can see the numbers 3 and 4 are still
+						required for a "Small Straight". On success it returns 30 points.
+						
+-	Large Straight:		A linear ascending sequence of five numbers is called "Large Straight", where these two
+						combinations are valid only: {{1, 2, 3, 4, 5}, {2, 3, 4, 5, 6}}.
+						On success it returns 40 points.
+
+-	Yahtzee:			If all numbers are equal, then 50 points will return.
+
+-	Chance:				Count all numbers and return the result.
+
+#	-------
+#	RETRIES
+#	-------
+
+If you get a bad combination of shuffled dices, then you can reshuffle all or selected dices up to two times again.
+A binary sequence, see the example below, is required. If you answer the given question:
+" Would you like to shuffle again? <y/n> " with 'y' (for yes), then select the
+dices which should be shuffled again with a zero (0), where the dices to keep are set with a one (1).
+
+Let us have the following combination: {1 5 5 3 2 4}. If you want to keep the 5 to get a higher chance for more fives,
+then enter these sequence: 011000. Every dice, which is marked with a zero (0) will be shuffled again.
+
+Finally, have fun with the game and get the highest possible score.
+And go back to work. (:
