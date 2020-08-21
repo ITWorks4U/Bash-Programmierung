@@ -1,2 +1,0 @@
--rw-rw-r-- 1 itworks4u itworks4u    0 Nov  4 12:08 counter.txt
--rw-rw-r-- 1 itworks4u itworks4u 3373 Nov  4 12:03 listOfAllFiles.txt
